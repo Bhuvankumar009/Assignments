@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Text from Input</title>
+  <script>
+    function updateText() {
+      const userInput = document.getElementById("userInput").value;
+      document.getElementById("displayText").textContent = userInput;
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Type something below:</h2>
+
+  <input type="text" id="userInput" placeholder="Enter text here">
+  <button onclick="updateText()">Show Text</button>
+
+  <p id="displayText">Your text will appear here.</p>
+
+</body>
+</html>
