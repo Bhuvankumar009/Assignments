@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Navigation Example</title>
+  <script>
+    window.onload = function () {
+      const paragraph = document.getElementById("myPara");
+
+      console.log("Parent Node of #myPara:", paragraph.parentNode);
+
+      const container = document.getElementById("container");
+      console.log("Child Nodes of #container:", container.childNodes);
+
+      console.log("Next Sibling of #myPara:", paragraph.nextSibling);
+
+      console.log("Next Element Sibling of #myPara:", paragraph.nextElementSibling);
+    };
+  </script>
+</head>
+<body>
+
+  <div id="container">
+    <h2>DOM Demo</h2>
+    <p id="myPara">This is a paragraph.</p>
+    <p>This is the next paragraph.</p>
+  </div>
+
+</body>
+</html>
