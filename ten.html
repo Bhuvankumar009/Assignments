@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic List</title>
+  <script>
+    let count = 1;
+
+    function addItem() {
+      const ul = document.getElementById("myList");
+
+      const li = document.createElement("li");
+      li.textContent = "Item " + count++;
+
+      ul.appendChild(li);
+    }
+
+    function removeLastItem() {
+      const ul = document.getElementById("myList");
+      const lastItem = ul.lastElementChild;
+
+      if (lastItem) {
+        ul.removeChild(lastItem);
+        count--;
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h2>My Dynamic List</h2>
+  <ul id="myList">
+  </ul>
+
+  <button onclick="addItem()">Add Item</button>
+  <button onclick="removeLastItem()">Remove Last Item</button>
+
+</body>
+</html>
