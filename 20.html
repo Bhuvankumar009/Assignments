@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Message App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      padding: 8px;
+      width: 250px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Message Updater</h2>
+
+  <input type="text" id="userInput" placeholder="Enter your message">
+  <br><br>
+
+  <button onclick="updateMessage()">Update Message</button>
+  <button onclick="clearMessage()">Clear</button>
+
+  <p id="message">Your message will appear here.</p>
+
+  <script>
+    let clickCount = 0;
+    const maxClicks = 5;
+
+    function updateMessage() {
+      const input = document.getElementById("userInput");
+      const message = document.getElementById("message");
+      const updateBtn = document.querySelector("button");
+
+      message.textContent = input.value;
+      clickCount++;
+
+      if (clickCount >= maxClicks) {
+        updateBtn.disabled = true;
+        updateBtn.textContent = "Limit Reached";
+      }
+    }
+
+    function clearMessage() {
+      document.getElementById("userInput").value = "";
+      document.getElementById("message").textContent = "Your message will appear here.";
+
+      // Reset button
+      const updateBtn = document.querySelector("button");
+      updateBtn.disabled = false;
+      updateBtn.textContent = "Update Message";
+      clickCount = 0;
+    }
+  </script>
+
+</body>
+</html>
