@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM List Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    li {
+      padding: 6px;
+      margin: 4px 0;
+      list-style: none;
+      border: 1px 2px 5px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My List</h2>
+
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <button onclick="addItem()">Add Item</button>
+  <button onclick="removeItem()">Remove Last Item</button>
+  <button onclick="highlightItems()">Highlight Items</button>
+  <button onclick="logDOM()">Log DOM Details</button>
+
+  <script>
+    let count = 3;
+
+    function addItem() {
+      const ul = document.getElementById("myList");
+      const li = document.createElement("li");
+      li.textContent = "Item " + count++;
+      ul.appendChild(li);
+    }
+
+    function removeItem() {
+      const ul = document.getElementById("myList");
+      const lastItem = ul.lastElementChild;
+      if (lastItem) {
+        ul.removeChild(lastItem);
+        count--; // optional
+      }
+    }
+
+    function highlightItems() {
+      const items = document.getElementById("myList").children;
+      for (let item of items) {
+        item.style.backgroundColor = "#f9e79f"; // light yellow
+      }
+    }
+
+    function logDOM() {
+      const ul = document.getElementById("myList");
+      console.log("Parent Node:", ul.parentNode);
+      console.log("Child Nodes:", ul.childNodes);
+      console.log("Next Sibling of <ul>:", ul.nextSibling);
+      console.log("Next Element Sibling of <ul>:", ul.nextElementSibling);
+    }
+  </script>
+
+</body>
+</html>
