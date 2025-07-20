@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Class & Responsive Divs</title>
+  <style>
+    /* ===== Layout: horizontal by default, becomes vertical on small screens ===== */
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      flex: 1;
+      padding: 20px;
+      background-color: lightsteelblue;
+      border: 1px solid #333;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    /* ===== Styling for the person info ===== */
+    #person-info {
+      padding: 15px;
+      background-color: #f0f0f0;
+      border: 1px solid #999;
+      font-family: sans-serif;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Horizontal / vertical divs -->
+  <div class="container">
+    <div class="box">Box A</div>
+    <div class="box">Box B</div>
+    <div class="box">Box C</div>
+  </div>
+
+  <!-- Container for person info -->
+  <div id="person-info"></div>
+
+  <script>
+    // ===== JavaScript class conversion including sayHello() =====
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      sayHello() {
+        console.log(`Hello! My name is ${this.name} and I am ${this.age} years old.`);
+      }
+    }
+
+    // ===== Instantiate the class and use it =====
+    const person = new Person("Ram", 25);
+
+    // Log greeting to console
+    person.sayHello(); 
+
+    // Display person details in the page
+    const infoDiv = document.getElementById("person-info");
+    infoDiv.innerHTML = `
+      <h2>Person Details</h2>
+      <p><strong>Name:</strong> ${person.name}</p>
+      <p><strong>Age:</strong> ${person.age}</p>
+    `;
+  </script>
+</body>
+</html>
