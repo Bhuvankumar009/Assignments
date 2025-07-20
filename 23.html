@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout with Media Queries</title>
+  <style>
+    /* Default font size and styling */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      padding: 20px;
+    }
+
+    /* Responsive image */
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+    }
+
+    /* Horizontal layout by default */
+    .box-container {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      flex: 1;
+      background-color: #e0f7fa;
+      border: 1px solid #0097a7;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Form styling */
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 5px;
+    }
+
+    /* ✅ Media query for small screens */
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px; /* Reduce font size */
+      }
+
+      .box-container {
+        flex-direction: column; /* Switch to vertical layout */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Responsive Image with alt attribute -->
+  <img 
+    src="https://www.techspot.com/articles-info/2299/images/photo-jpg.jpg" 
+    alt="Example of a responsive placeholder image" 
+    class="responsive-image"
+  />
+
+  <!-- Form with aria-label -->
+  <form aria-label="User Contact Form">
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your name">
+  </form>
+
+  <!-- Flex layout that changes to vertical on small screens -->
+  <div class="box-container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+</body>
+</html>
